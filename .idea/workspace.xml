@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e446bc72-5de8-4b90-a298-2f36b900a84e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/seminars/seminarTwo/HeapSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Algoritms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="e446bc72-5de8-4b90-a298-2f36b900a84e" name="Changes" comment="Algorithm beginner">
+      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/lections/third/List.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/seminars/seminarThree/NodeList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/seminars/seminarThree/Task2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algoritms/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/algoritms/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/algoritms/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/algoritms/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/algoritms/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/algoritms/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/algoritms/src/main/java/org/example/lections/lectionOne.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +17,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="7b8e59aa-f69e-4342-855b-fdb03d90cc3a" />
+        <option name="url" value="https://github.com/ndrvanv/Algorithms.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,6 +63,33 @@
       <option name="presentableId" value="Default" />
       <updated>1684679549369</updated>
     </task>
+    <task id="LOCAL-00001" summary="Heap Sort algorithm">
+      <created>1684933071169</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684933071169</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Algorithm beginner">
+      <created>1684933384360</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684933384360</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Algorithm beginner">
+      <created>1684933437871</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684933437871</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Heap Sort algorithm" />
+    <MESSAGE value="Algorithm beginner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Algorithm beginner" />
   </component>
 </project>
