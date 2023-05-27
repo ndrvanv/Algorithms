@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e446bc72-5de8-4b90-a298-2f36b900a84e" name="Changes" comment="Algorithm beginner">
-      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/lections/third/List.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/seminars/seminarThree/NodeList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/seminars/seminarThree/Task2.java" afterDir="false" />
+    <list default="true" id="e446bc72-5de8-4b90-a298-2f36b900a84e" name="Changes" comment="Add third part">
+      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/lections/fourth/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/lections/fourth/RedBlackTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/lections/fourth/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,12 +84,20 @@
       <option name="project" value="LOCAL" />
       <updated>1684933437871</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add third part">
+      <created>1685136314299</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685136314299</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Heap Sort algorithm" />
     <MESSAGE value="Algorithm beginner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Algorithm beginner" />
+    <MESSAGE value="Add third part" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add third part" />
   </component>
 </project>
