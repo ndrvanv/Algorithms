@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e446bc72-5de8-4b90-a298-2f36b900a84e" name="Changes" comment="Add third part">
-      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/lections/fourth/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/lections/fourth/RedBlackTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/algorithms/src/main/java/org/example/lections/fourth/Tree.java" afterDir="false" />
+    <list default="true" id="e446bc72-5de8-4b90-a298-2f36b900a84e" name="Changes" comment="Add forth-two part">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,13 +88,29 @@
       <option name="project" value="LOCAL" />
       <updated>1685136314299</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add forth part">
+      <created>1685207514860</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685207514860</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add forth-two part">
+      <created>1685207542570</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685207542570</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Heap Sort algorithm" />
     <MESSAGE value="Algorithm beginner" />
     <MESSAGE value="Add third part" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add third part" />
+    <MESSAGE value="Add forth part" />
+    <MESSAGE value="Add forth-two part" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add forth-two part" />
   </component>
 </project>

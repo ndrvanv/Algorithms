@@ -1,52 +1,45 @@
 
-public class Tree {
-    Node root;
+public class Tree<V extends Comparable<V>> {
+    private Node root;
 
-    public boolean exist(int value){
-        if (root != null) {
-            Node node = find(root, value);
-                if (node != null) {
-                    return true;
-            }
-        }
+    private class Node {
+        private V value;
+        private Node left;
+        private Node right;
+    }
+
+//    public boolean contains(V value){
+//        Node node = root;
+//        while (node != null){
+//            if (node.value.equals(value)){
+//                return true;
+//            }
+//            if (node.value.compareTo(value) > 0) {
+//                node = node.left;
+//            }else {
+//                node = node.right;
+//            }
+//        }
+//        return false;
+//    }
+
+    //решение рекурсией
+    public boolean contains(V value) {
+        if (root == null){
             return false;
         }
-        /*
-//        Обход в глубину
-    private Node find (Node node, int value) {
-        if(node.value == value){
-            return node;
-        } else {
-            for (Node child: node.childeren) {
-                Node result = find(child, value){
-                    if(result != null){
-                        return result;
-                    }
-                }
-            }
-            return null;
-        }
+        return contains(root, value);
     }
-*/
-//    Обход в ширину
-    private Node find(int value) {
-        List<Node> line = new ArrayList<>();
-        line.add(root);
-        while (line.size() > 0){
-            List<Node> nextLine = new ArrayList();
-            for(Node node : line) {
-                if(node.value == value){
-                    return node;
-                }
-                nextLine.addAll(node.childeren);
-            }
-            line = nextLine;
-        }
-        return null;
-    }
-    public class Node{
-        int value;
-        List<Node> childeren;
 
+    private boolean contains(Node node, V value) {
+        if (node.value.equals(value)){
+            return true;
+        } else {
+            if (node.value.compareTo(value) > 0){
+                return contains(node.left, value);
+            } else {
+                return contains(node.right, value);
+            }
+        }
     }
 }

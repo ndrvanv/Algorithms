@@ -1,111 +1,185 @@
-import java.awt.List;
-public class RedBlackTree {
-    private Node root;
-    public boolean add(int value){
-        if (root != null){
-            boolean result = addNode(root, value);
-            root = rebalance(root);
-            root.color = Color.BlACK;
-            return result;
-        } else {
-            root = new Node();
-            root.color = Color.BlACK;
-            root.value = value;
-            return true;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RedBlackTree<T extends Comparable<T>> {
+
+    private static final boolean RED = true;
+    private static final boolean BLACK = false;
+
+    private Node<T> root;
+
+    private static class Node<T> {
+        T value;
+        boolean color;
+        Node<T> left;
+        Node<T> right;
+        Node<T> parent;
+
+        Node(T value, boolean color, Node<T> left, Node<T> right, Node<T> parent) {
+            this.value = value;
+            this.color = color;
+            this.left = left;
+            this.right = right;
+            this.parent = parent;
         }
     }
 
-    private boolean addNode(Node node, int value){
-        if(node.value > value) {
-            if(node.leftChild != null) {
-                boolean result = addNode(node.leftChild, value);
-                node.leftChild = rebalance(node.leftChild);
-                return result;
-            } else {
-                node.leftChild = new Node();
-                node.leftChild.color = Color.RED;
-                node.leftChild.value = value;
-                return true;
-            }
-            else {
-                if(node.rightChild != null){
-                    boolean result = addNode(node.rightChild, value);
-                    node.rightChild = rebalance(node.rightChild);
-                    return result;
+    public void insert(T value) {
+        Node<T> newNode = new Node<>(value, RED, null, null, null);
+        if (root == null) {
+            root = newNode;
+            root.color = BLACK;
+        } else {
+            Node<T> current = root;
+            while (true) {
+                int cmp = value.compareTo(current.value);
+                if (cmp < 0) {
+                    if (current.left == null) {
+                        current.left = newNode;
+                        newNode.parent = current;
+                        break;
+                    }
+                    current = current.left;
+                } else if (cmp > 0) {
+                    if (current.right == null) {
+                        current.right = newNode;
+                        newNode.parent = current;
+                        break;
+                    }
+                    current = current.right;
                 } else {
-                    node.rightChild = new Node();
-                    node.rightChild.color = Color.RED;
-                    node.rightChild.color = value;
-                    return true;
+                    return; // value already exists in tree
+                }
+            }
+            fixAfterInsertion(newNode);
+        }
+    }
+
+    private void fixAfterInsertion(Node<T> x) {
+        x.color = RED;
+        while (x != null && x != root && x.parent.color == RED) {
+            if (parentOf(x) == leftOf(parentOf(parentOf(x)))) {
+                Node<T> y = rightOf(parentOf(parentOf(x)));
+                if (colorOf(y) == RED) {
+                    setColor(parentOf(x), BLACK);
+                    setColor(y, BLACK);
+                    setColor(parentOf(parentOf(x)), RED);
+                    x = parentOf(parentOf(x));
+                } else {
+                    if (x == rightOf(parentOf(x))) {
+                        x = parentOf(x);
+                        rotateLeft(x);
+                    }
+                    setColor(parentOf(x), BLACK);
+                    setColor(parentOf(parentOf(x)), RED);
+                    rotateRight(parentOf(parentOf(x)));
+                }
+            } else {
+                Node<T> y = leftOf(parentOf(parentOf(x)));
+                if (colorOf(y) == RED) {
+                    setColor(parentOf(x), BLACK);
+                    setColor(y, BLACK);
+                    setColor(parentOf(parentOf(x)), RED);
+                    x = parentOf(parentOf(x));
+                } else {
+                    if (x == leftOf(parentOf(x))) {
+                        x = parentOf(x);
+                        rotateRight(x);
+                    }
+                    setColor(parentOf(x), BLACK);
+                    setColor(parentOf(parentOf(x)), RED);
+                    rotateLeft(parentOf(parentOf(x)));
                 }
             }
         }
+        root.color = BLACK;
     }
 
-    private Node rebalance(Node node){
-        Node result = node;
-        boolean needRebalance;
-        do {
-            needRebalance = false;
-            if (result.rightChild != null && result.rightChild.color == Color.RED &&
-                    (result.leftChild == null || result.leftChild.color == Color.BlACK)){
-                needRebalance = true;
-                result = rightSwap(result);
-            }
-            if(result.leftChild != null && result.leftChild.color == Color.RED &&
-            result.leftChild.leftChild != null && result.leftChild.leftChild.color == Color.RED){
-                needRebalance = true;
-                result = leftSwap(result);
-            }
-            if (result.leftChild != null && result.leftChild.color == Color.RED &&
-            result.rightChild != null && result.rightChild.color == Color.RED) {
-                needRebalance = true;
-                colorSwap(result);
-            }
+    private void setColor(Node<T> node, boolean color) {
+        if (node != null)
+            node.color = color;
+    }
+
+    private Node<T> parentOf(Node<T> node) {
+        return node != null ? node.parent : null;
+    }
+
+    private Node<T> leftOf(Node<T> node) {
+        return node != null ? node.left : null;
+    }
+
+    private Node<T> rightOf(Node<T> node) {
+        return node != null ? node.right : null;
+    }
+
+    private boolean colorOf(Node<T> node) {
+        return node != null ? node.color : BLACK;
+    }
+
+    private void rotateLeft(Node<T> x) {
+        Node<T> y = x.right;
+        x.right = y.left;
+        if (y.left != null)
+            y.left.parent = x;
+        y.parent = x.parent;
+        if (x.parent == null)
+            root = y;
+        else if (x == x.parent.left)
+            x.parent.left = y;
+        else
+            x.parent.right = y;
+        y.left = x;
+        x.parent = y;
+    }
+
+    private void rotateRight(Node<T> x) {
+        Node<T> y = x.left;
+        x.left = y.right;
+        if (y.right != null)
+            y.right.parent = x;
+        y.parent = x.parent;
+        if (x.parent == null)
+            root = y;
+        else if (x == x.parent.right)
+            x.parent.right = y;
+        else
+            x.parent.left = y;
+        y.right = x;
+        x.parent = y;
+    }
+
+    public List<T> inorderTraversal() {
+        List<T> result = new ArrayList<>();
+        if (root == null)
+            return result;
+
+        Node<T> current = root;
+        while (current.left != null)
+            current = current.left;
+
+        while (current != null) {
+            result.add(current.value);
+            current = successor(current);
         }
-        while (needRebalance);
+
         return result;
     }
-    private Node rightSwap(Node node){
-        Node rightChild = node.rightChild;
-        Node betweenChild = rightChild.leftChild;
-        rightChild.leftChild = node;
-        node.rightChild = betweenChild;
-        rightChild.color = node.color;
-        node.color = Color.RED;
-        return rightChild;
-    }
-    private Node leftSwap(Node node){
-        Node leftChild = node.leftChild;
-        Node betweenChild = leftChild.rightChild;
-        leftChild.rightChild = node;
-        node.leftChild = betweenChild;
-        leftChild.color = node.color;
-        node.color = Color.RED;
-        return leftChild;
-    }
-    private void colorSwap(Node node){
-        node.rightChild.color = Color.BlACK;
-        node.leftChild.color = Color.BlACK;
-        node.color = Color.RED;
-    }
-    private int value;
-    private Color color;
-    private Node leftChild;
-    private Node rightChild;
 
-    public String toString(){
-        return "Node{" +
-                "value=" + value +
-                ", color=" + color +
-                "}";
-    }
-    private enum Color {
-        RED, BlACK
-    }
-    public class Node{
-        int value;
-        List<Node> childeren;
-
+    private Node<T> successor(Node<T> x) {
+        if (x.right != null) {
+            Node<T> current = x.right;
+            while (current.left != null)
+                current = current.left;
+            return current;
+        } else {
+            Node<T> current = x.parent;
+            Node<T> child = x;
+            while (current != null && child == current.right) {
+                child = current;
+                current = current.parent;
+            }
+            return current;
+        }
     }
 }
